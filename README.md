@@ -9,7 +9,7 @@ create table Worker,Bonus,Title.
 ### STEP 3:
 Insert Value to the tables.
 ### STEP 4:
-Select record from one table that another table does'nt have using NOT IN.
+Select records having matching data in some fields.
 ## PROGRAM:
 ```sql
 CREATE DATABASE ORG;
@@ -75,11 +75,12 @@ INSERT INTO Title
 (007, 'Executive', '2016-06-11 00:00:00'),
 (006, 'Lead', '2016-06-11 00:00:00'),
 (003, 'Lead', '2016-06-11 00:00:00');
-SELECT *
+SELECT DEPARTMENT, COUNT(*) as duplicate_count
 FROM Worker
-WHERE WORKER_ID NOT IN (SELECT WORKER_REF_ID FROM Bonus);
+GROUP BY DEPARTMENT
+HAVING COUNT(*) > 1;
 ```
 ## OUTPUT:
-![image](https://github.com/Karthikeyan21001828/DBMS_EX04/assets/93427303/7f67e75a-db08-43bf-8407-bc622f733bde)
+![image](https://github.com/Karthikeyan21001828/DBMS_EX05/assets/93427303/026191c8-ce92-43e3-b1af-46f0579e7a20)
 ## RESULT:
 A sql query to fetch duplicate records having matching data in some fields of a table has been executed.
